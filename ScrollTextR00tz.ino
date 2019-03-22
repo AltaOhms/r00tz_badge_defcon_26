@@ -3,9 +3,9 @@
 #include <Adafruit_IS31FL3731.h>
 
 Adafruit_IS31FL3731_Wing ledmatrix = Adafruit_IS31FL3731_Wing();
-
+// changes the speed of the text
 const int START_X = ledmatrix.width();
-const long DISPLAY_UPDATE_INTERVAL = 100; // milliseconds
+const long DISPLAY_UPDATE_INTERVAL = 100; // milliseconds //1(display):100(message)
 const long MESSAGE_UPDATE_INTERVAL = 10000;
 const unsigned long BRIGHTNESS = 100; // 0-1000 effective range
 
@@ -24,8 +24,6 @@ void setup() {
 
   ledmatrix.setTextWrap(false);
 
-  message = "Hello";
-  message += " World!";
 }  
 
 void loop() {
@@ -43,8 +41,7 @@ void changeMessage() {
 
       previousMillis = currentMillis;
 
-      message = "CPU Time:";
-      message += currentMillis;
+      message = ""; // enter message here
 
       Serial.print("New message: ");
       Serial.println(message);
